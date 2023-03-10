@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /customers or /customers.json
   def index
@@ -20,9 +21,9 @@ class CustomersController < ApplicationController
   end
 
   # POST /customers or /customers.json
-  def create
+  def create 
     @customer = Customer.new(customer_params)
-
+    @customer.user_id = user.id
     respond_to do |format|
       if @customer.save
         format.html { redirect_to customer_url(@customer), notice: "Customer was successfully created." }
@@ -65,6 +66,10 @@ class CustomersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def customer_params
-      params.require(:customer).permit(:name, :address, :yearly_income, :user_id)
+      params.require(:customer).permit(:name, :address, :yearly_income)
+    end
+
+    def user 
+      current_user 
     end
 end

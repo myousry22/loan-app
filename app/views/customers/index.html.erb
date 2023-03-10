@@ -8,7 +8,6 @@
       <th>Name</th>
       <th>Address</th>
       <th>Yearly income</th>
-      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,7 +18,6 @@
         <td><%= customer.name %></td>
         <td><%= customer.address %></td>
         <td><%= customer.yearly_income %></td>
-        <td><%= customer.user_id %></td>
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
         <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
