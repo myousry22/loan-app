@@ -26,6 +26,10 @@
     <%= form.text_field :yearly_income %>
   </div>
 
+  <div class="field">
+    <%= form.select :currency, options_for_select([['USD', 'USD'], ['EUR', 'EUR'], ['EGP', 'EGP']]), {}, { class: 'form-control' } %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

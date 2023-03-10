@@ -15,5 +15,11 @@
   <%= @customer.yearly_income %>
 </p>
 
+<p>
+  <strong>Currency:</strong>
+  <%= @customer.currency %>
+</p>
+
+
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>

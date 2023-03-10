@@ -15,7 +15,8 @@ ActiveRecord::Schema.define(version: 2023_03_10_161904) do
   create_table "customers", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.text "address"
-    t.decimal "yearly_income", precision: 10
+    t.decimal "yearly_income", precision: 8, scale: 2
+    t.string "currency"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
