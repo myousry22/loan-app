@@ -2,7 +2,7 @@ class Loan < ApplicationRecord
   ANNUAL_INEREST_RATE = 0.20.freeze
   belongs_to :customer
   has_many :installment_schedules
-  
+
   validates :number_of_installments, inclusion: { in: 1..6 }
 
 
@@ -20,10 +20,10 @@ class Loan < ApplicationRecord
 
   def installment_schedule
     monthly_amount = monthly_installment_amount
-    start_date = Date.today 
+    start_date = created_at
     installments = []
     (1..number_of_installments).each do |num|
-      installment_date = start_date + (num+1).months
+      installment_date = start_date + (num-1).months
       installment_amount = monthly_amount
       installments << { date: installment_date, amount: installment_amount }
     end
