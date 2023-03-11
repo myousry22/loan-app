@@ -5,20 +5,14 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.7.2 , Rails: 6.1.7
 
-* System dependencies
+* DB is Mysql2, you need to download mysql2 on your machine
 
-* Configuration
+* Run bundle install / rails db:create / rails db:migrate 
 
-* Database creation
 
-* Database initialization
+* Run rails s then go to http://localhost:3000/
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* to run the specs: bundle exec rspec 
