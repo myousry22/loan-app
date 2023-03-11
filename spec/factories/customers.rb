@@ -3,7 +3,7 @@
 FactoryBot.define do
     factory :customer do
       name { 'customer' }
-      user_id { 1 }
+      user
       yearly_income { 10000 }
     end
   end
