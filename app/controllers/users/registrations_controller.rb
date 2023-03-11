@@ -1,7 +1,12 @@
-class Users::RegistrationsController < Devise::RegistrationsController
-  protected
+# frozen_string_literal: true
 
-  def after_sign_up_path_for(resource)
-    new_customer_path
+module Users
+  # RegistrationsController
+  class RegistrationsController < Devise::RegistrationsController
+    protected
+
+    def after_sign_up_path_for(_resource)
+      new_customer_path
+    end
   end
 end

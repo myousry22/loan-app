@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# customer controller
 class CustomersController < ApplicationController
-  before_action :set_customer, only: %i[ show edit update destroy ]
+  before_action :set_customer, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   # GET /customers or /customers.json
@@ -8,8 +11,7 @@ class CustomersController < ApplicationController
   end
 
   # GET /customers/1 or /customers/1.json
-  def show
-  end
+  def show; end
 
   # GET /customers/new
   def new
@@ -17,16 +19,15 @@ class CustomersController < ApplicationController
   end
 
   # GET /customers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /customers or /customers.json
-  def create 
+  def create
     @customer = Customer.new(customer_params)
-    
+
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to customer_url(@customer), notice: "Customer was successfully created." }
+        format.html { redirect_to customer_url(@customer), notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +40,7 @@ class CustomersController < ApplicationController
   def update
     respond_to do |format|
       if @customer.update(customer_params)
-        format.html { redirect_to customer_url(@customer), notice: "Customer was successfully updated." }
+        format.html { redirect_to customer_url(@customer), notice: 'Customer was successfully updated.' }
         format.json { render :show, status: :ok, location: @customer }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,19 +54,20 @@ class CustomersController < ApplicationController
     @customer.destroy
 
     respond_to do |format|
-      format.html { redirect_to customers_url, notice: "Customer was successfully destroyed." }
+      format.html { redirect_to customers_url, notice: 'Customer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_customer
-      @customer = Customer.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def customer_params
-      params.require(:customer).permit(:name, :address, :yearly_income, :currency).merge(customer_id: current_user.id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_customer
+    @customer = Customer.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def customer_params
+    params.require(:customer).permit(:name, :address, :yearly_income, :currency).merge(user_id: current_user.id)
+  end
 end

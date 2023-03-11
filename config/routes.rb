@@ -1,11 +1,11 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  
- 
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
   resources :customers do
-    resources :loans do 
+    resources :loans do
       member do
         get :installment_schedule
       end
