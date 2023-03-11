@@ -11,10 +11,10 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_ROOT_PASSWORD: root
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_PASSWORD: root
           MYSQL_DATABASE: loan_app_test
-          MYSQL_ROOT_HOST: "%"
-          MAINTENANCE: false
+          MYSQL_USER: root
         ports:
           - 3306:3306
     steps:
