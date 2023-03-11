@@ -1,7 +1,6 @@
 class Loan < ApplicationRecord
   ANNUAL_INEREST_RATE = 0.20.freeze
   belongs_to :customer
-  has_many :installment_schedules
 
   validates :number_of_installments, inclusion: { in: 1..6 }
 
@@ -10,8 +9,6 @@ class Loan < ApplicationRecord
 
 
   before_create :add_loan_interest
-
-
 
 
   def total_amount
