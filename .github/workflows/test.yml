@@ -11,8 +11,8 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: test_app
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: loan_app_test
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
