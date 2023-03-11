@@ -13,6 +13,10 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: loan_app_test
+          MYSQL_ROOT_HOST: "%"
+          MAINTENANCE: false
+        ports:
+          - 3306:3306
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
