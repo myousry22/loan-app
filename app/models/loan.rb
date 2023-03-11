@@ -31,7 +31,6 @@ class Loan < ApplicationRecord
   private 
 
   def add_loan_interest
-    byebug
     interest_rate = (number_of_installments/12.0) * ANNUAL_INEREST_RATE
     self.interest = amount * interest_rate 
   end
@@ -40,14 +39,4 @@ class Loan < ApplicationRecord
     total_amount / number_of_installments
   end
   
-
- 
- 
- 
-
-  # def total_installment_amount(loan)
-    # interest_rate = 0.20 # 20% annual interest rate
-    # loan_interest = (amount * interest_rate * loduration_in_months) / 12.0
-    # self.interest = loan.amount + loan_interest
-  # end
 end
