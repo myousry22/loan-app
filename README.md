@@ -16,3 +16,12 @@ Things you may want to cover:
 
 
 * to run the specs: bundle exec rspec 
+
+* what is done ? 
+  - sign in / sign up
+  - customer page
+  - customer can login and create one or many loan 
+  - loan page
+  - show loan installment schedule
+  - unit tests 
+  - github action for the testing 
